@@ -7,7 +7,7 @@ namespace TestsForRecords
     {
 
         /// <summary>
-        /// Тест, проверяющий умножения одноэлементной матрицы.
+        /// Тест, проверяющий вывод одной записи.
         /// </summary>
         [TestMethod]
         public void OutputOfOneRecords()
@@ -26,7 +26,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий умножение матриц, в результате которого получается одноэлементная матрица. 
+        /// Тест, проверяющий вывод нескольких записей. 
         /// </summary>
         [TestMethod]
         public void OutputOfMoreRecords()
@@ -51,7 +51,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий умножение квадратных матриц.
+        /// Тест, проверяющий вывод записи с отличной датой.
         /// </summary>
         [TestMethod]
         public void OutputOfRecordOfDifferentDays()
@@ -76,7 +76,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий умножение столбца на строчку.
+        /// Тест, проверяющий вывод записей с различной датой.
         /// </summary>
         [TestMethod]
         public void OutupOfRecordsOfDifferentDays()
@@ -101,7 +101,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий возможность умножения матриц.
+        /// Тест, проверяющий вывод при отсуствие записи в этот день.
         /// </summary>
         [TestMethod]
         public void OutputWhenNoRecordsOfDay()
@@ -126,7 +126,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий умножение матрицы на число.
+        /// Тест, проверяющий вывод пациента у одного доктора.
         /// </summary>
         [TestMethod]
         public void InHospitalOneDoctorAndOnePatient()
@@ -145,7 +145,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий умножение матрицу на вещественное число.
+        /// Тест, проверяющий вывод пациентов у одного доктора.
         /// </summary>
         [TestMethod]
         public void InHospitalOneDoctor()
@@ -170,7 +170,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий умножение матрицы на единицу.
+        /// Тест, проверяющий вывод пациентов у одного доктора в различные дни.
         /// </summary>
         [TestMethod]
         public void InHospitalOneDoctorInDifferntDays()
@@ -195,7 +195,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий умножение матрицы на отрицательное число.
+        /// Тест, проверяющий вывод пациентов у нескольких докторов.
         /// </summary>
         [TestMethod]
         public void InHospitalSomeDoctors()
@@ -220,7 +220,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий умножение матрицы на ноль.
+        /// Тест, проверяющий вывод, когда в этот день нет записей.
         /// </summary>
         [TestMethod]
         public void InThisDayNotRecords()
@@ -244,6 +244,10 @@ namespace TestsForRecords
 
             Assert.AreEqual(result, record1);
         }
+
+        /// <summary>
+        /// Тест, проверяющий среднее количество пациентов, когда один пациент в день.
+        /// </summary>
         [TestMethod]
         public void OnePatientOnDay()
         {
@@ -258,6 +262,10 @@ namespace TestsForRecords
 
             Assert.AreEqual(result, record1);
         }
+
+        /// <summary>
+        /// Тест, проверяющий среднее количество пациентов, когда несколько пациент в день.
+        /// </summary>
         [TestMethod]
         public void SomePatientsOnDay()
         {
@@ -278,6 +286,10 @@ namespace TestsForRecords
 
             Assert.AreEqual(result, record1);
         }
+
+        /// <summary>
+        /// Тест, проверяющий среднее количество пациентов, когда несколько пациент в различные дни.
+        /// </summary>
         [TestMethod]
         public void SomePatientsOnDifferentDays()
         {
@@ -298,6 +310,10 @@ namespace TestsForRecords
 
             Assert.AreEqual(result, record1);
         }
+
+        /// <summary>
+        /// Тест, проверяющий среднее количество пациентов, когда несколько пациент по различным специальностям.
+        /// </summary>
         [TestMethod]
         public void SomePatientsOfDifferentSpeciality()
         {
@@ -318,6 +334,10 @@ namespace TestsForRecords
 
             Assert.AreEqual(result, record1);
         }
+
+        /// <summary>
+        /// Тест, проверяющий среднее количество пациентов, когда нет записей.
+        /// </summary>
         [TestMethod]
         public void NoRecords()
         {

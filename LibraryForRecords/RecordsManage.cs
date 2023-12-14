@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibraryForRecords
 {
-
+    /// <summary>
+    /// Нумерация по специальности.
+    /// </summary>
     enum Speciality
     {
         Cardiologist = 1,
@@ -15,10 +17,21 @@ namespace LibraryForRecords
         Rheumatologist = 4,
         Ophthalmologist = 5,
     }
+    /// <summary>
+    /// Класс с хранением записей.
+    /// </summary>
     public class RecordsManage
     {
+
+        /// <summary>
+        /// Поле записей.
+        /// </summary>
         public Records[] records; 
 
+        /// <summary>
+        /// Конструктор по количеству записей.
+        /// </summary>
+        /// <param name="NumberOfRecords"></param>
         public RecordsManage(int NumberOfRecords)
         {
             records = new Records[NumberOfRecords];
@@ -28,6 +41,12 @@ namespace LibraryForRecords
             }
         }
 
+        /// <summary>
+        /// Метод, для вывода записей в определённый день.
+        /// </summary>
+        /// <param name="time"></param>
+        /// <param name="records"></param>
+        /// <returns></returns>
         public static string TimeRecords(string time, Records[] records)
         {
             int count = 0;
@@ -50,6 +69,12 @@ namespace LibraryForRecords
             }
         }
 
+        /// <summary>
+        /// Метод вывода количества пациентов у докторов в определённый день.
+        /// </summary>
+        /// <param name="time"></param>
+        /// <param name="records"></param>
+        /// <returns></returns>
         public static string DoctorRecords(string time, Records[] records) 
         {
             int patients = 0, doctors = 0, diff = 0;
@@ -96,13 +121,18 @@ namespace LibraryForRecords
             }
         }
 
+        /// <summary>
+        /// Метод подсчёта среднего количества пациентов в день по специальностям.
+        /// </summary>
+        /// <param name="records"></param>
+        /// <returns></returns>
         public static string AveragePatients(Records[] records)
         {
             double patients = 0, diff = 0;
             int days = 0;
             string average = "";
             string[] times = new string[records.Length];
-            for (int i = 1; i <= 5 ; i++) 
+            for (int i = (int)Speciality.Cardiologist ; i <= (int)Speciality.Ophthalmologist ; i++) 
             {
                 for (int j = 0; j < days; j++)
                 {

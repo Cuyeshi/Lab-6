@@ -57,7 +57,7 @@ namespace Hospital
                 }
 
                 switch (choice)
-                {
+                {                                                    //Ввод записей
                     case 1:
                         for (int i = 0; i < numberOfRecords; i++)
                         {
@@ -90,7 +90,7 @@ namespace Hospital
                         }
                         break;
 
-                    case 2:
+                    case 2:                                                 //Редактирование записи
                         Console.Write("Введите номер записи для редактирования: ");
                         int recordNumber = 0;
                         ValidateValue = true;
@@ -143,7 +143,7 @@ namespace Hospital
                         }
                         break;
 
-                    case 3:
+                    case 3:                                          //Вывод записей
                         Console.WriteLine("Записи в поликлинике:");
 
                         for (int i = 0; i < numberOfRecords; i++)
@@ -188,6 +188,10 @@ namespace Hospital
             } 
         }
 
+        /// <summary>
+        /// Метод ввода даты.
+        /// </summary>
+        /// <returns></returns>
         public static string InputData()
         {
             int day, month, year;

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace LibraryForRecords
 {
+    /// <summary>
+    /// Класс исключений.
+    /// </summary>
     public class RecordsException : Exception
     {
         public int ErrorCode { get; }
@@ -16,7 +19,7 @@ namespace LibraryForRecords
         }
 
         /// <summary>
-        /// Метод исключения для переменных типа Double.
+        /// Метод исключения для дней.
         /// </summary>
         /// <param name="input"></param>
         /// <param name="result"></param>
@@ -39,7 +42,12 @@ namespace LibraryForRecords
             }
         }
 
-
+        /// <summary>
+        /// Метод исключений для месяцев.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="result"></param>
+        /// <exception cref="RecordsException"></exception>
         public static void ValidateMonth(string input, out int result)
         {
             if (string.IsNullOrWhiteSpace(input))
@@ -58,6 +66,12 @@ namespace LibraryForRecords
             }
         }
 
+        /// <summary>
+        /// Метод исключений для годов.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="result"></param>
+        /// <exception cref="RecordsException"></exception>
         public static void ValidateYear(string input, out int result)
         {
             if (string.IsNullOrWhiteSpace(input))
@@ -95,7 +109,7 @@ namespace LibraryForRecords
         }
 
         /// <summary>
-        /// Метод исключения для значений выбора в меню.
+        /// Метод исключения для выбора специальности.
         /// </summary>
         /// <param name="input"></param>
         /// <param name="result"></param>
