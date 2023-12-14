@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LibraryForRecords\LibraryForRecords.csproj" />
+    <ProjectReference Include="..\TestsForRecords\TestsForRecords.csproj" />
   </ItemGroup>
 
 </Project>
