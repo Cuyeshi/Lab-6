@@ -86,7 +86,6 @@ namespace LibraryForRecords
                 {
                     for (int i = 0;i <= doctors;i++)
                     {
-                        Console.WriteLine(names.Length);
                         if (names[i] == record.Initials)
                         {
                             diff++;

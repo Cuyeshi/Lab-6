@@ -64,7 +64,19 @@ namespace Hospital
                             Console.WriteLine($"Введите данные для записи {i + 1}:");
 
                             Console.Write("ФИО доктора: ");
-                            recordsManage.records[i].Initials = Console.ReadLine();
+                            bool empty = true;
+                            while (empty)
+                            {
+                                recordsManage.records[i].Initials = Console.ReadLine();
+                                if (recordsManage.records[i].Initials != "")
+                                {
+                                    empty = false;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Строка пуста!");
+                                }
+                            }
 
                             Console.Write("Дата: ");
                             recordsManage.records[i].Time = Program.InputData();
@@ -100,6 +112,7 @@ namespace Hospital
                             {
                                 string number = Console.ReadLine();
                                 RecordsException.ValidateInt(number, out recordNumber);
+                                recordNumber = recordNumber - 1;
                                 ValidateValue = false;
                             }
                             catch (RecordsException ex)
@@ -113,10 +126,22 @@ namespace Hospital
                             Console.WriteLine($"Редактирование данных для записи {recordNumber + 1}:");
 
                             Console.Write("ФИО доктора: ");
-                            recordsManage.records[recordNumber].Initials = Console.ReadLine();
+                            bool empty = true;
+                            while (empty)
+                            {
+                                recordsManage.records[recordNumber].Initials = Console.ReadLine();
+                                if (recordsManage.records[recordNumber].Initials != "")
+                                {
+                                    empty = false;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Строка пуста!");
+                                }
+                            }
 
                             Console.Write("Дата: ");
-                            recordsManage.records[recordNumber].Time = Console.ReadLine();
+                            recordsManage.records[recordNumber].Time = Program.InputData();
 
                             Console.Write($"Специальность(1.Кардиолог;2.Отоларинголог;3.Психиатр;4.Ревматолог;5.Офтальмолог): ");
                             recordsManage.records[recordNumber].Speciality = 0;
