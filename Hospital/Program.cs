@@ -8,7 +8,21 @@ namespace Hospital
         static void Main(string[] args)
         {
             Console.Write("Введите количество записей: ");
-            int numberOfRecords = int.Parse(Console.ReadLine());
+            int numberOfRecords = 0;
+            bool ValidateValue = true;
+            while (ValidateValue)
+            {
+                try
+                {
+                    string number = Console.ReadLine();
+                    RecordsException.ValidateInt(number, out numberOfRecords);
+                    ValidateValue = false;
+                }
+                catch (RecordsException ex)
+                {
+                    Console.WriteLine($"Ошибочный ввод (Код {ex.ErrorCode}): {ex.Message}");
+                }
+            }
 
             RecordsManage recordsManage = new RecordsManage(numberOfRecords);
             string result = "";
@@ -17,16 +31,30 @@ namespace Hospital
 
             while (!exit) 
             {
-                Console.WriteLine("Выберите действие:");
+                Console.WriteLine("\nВыберите действие:");
                 Console.WriteLine("1. Ввод записи на приём");
                 Console.WriteLine("2. Редактирование записей");
                 Console.WriteLine("3. Просмотр записей");
                 Console.WriteLine("4. Вывод записей на определённый день");
                 Console.WriteLine("5. Вывод количества пациентов по доктору в определённый день");
                 Console.WriteLine("6. Подсчёт среднего количества пациентов в день по специальности");
-                Console.WriteLine("0. Выход");
+                Console.WriteLine("0. Выход\n");
 
-                int choice = int.Parse(Console.ReadLine());
+                int choice = 0;
+                ValidateValue = true;
+                while (ValidateValue)
+                {
+                    try
+                    {
+                        string number = Console.ReadLine();
+                        RecordsException.ValidateInt(number, out choice);
+                        ValidateValue = false;
+                    }
+                    catch (RecordsException ex)
+                    {
+                        Console.WriteLine($"Ошибочный ввод (Код {ex.ErrorCode}): {ex.Message}\n");
+                    }
+                }
 
                 switch (choice)
                 {
@@ -42,7 +70,21 @@ namespace Hospital
                             recordsManage.records[i].Time = Program.InputData();
 
                             Console.Write($"Специальность(1.Кардиолог;2.Отоларинголог;3.Психиатр;4.Ревматолог;5.Офтальмолог): ");
-                            recordsManage.records[i].Speciality = int.Parse(Console.ReadLine());
+                            recordsManage.records[i].Speciality = 0;
+                            ValidateValue = true;
+                            while (ValidateValue)
+                            {
+                                try
+                                {
+                                    string number = Console.ReadLine();
+                                    RecordsException.ValidateSpeciality(number, out recordsManage.records[i].Speciality);
+                                    ValidateValue = false;
+                                }
+                                catch (RecordsException ex)
+                                {
+                                    Console.WriteLine($"Ошибочный ввод (Код {ex.ErrorCode}): {ex.Message}\n");
+                                }
+                            }
 
                             Console.WriteLine();
                         }
@@ -50,7 +92,21 @@ namespace Hospital
 
                     case 2:
                         Console.Write("Введите номер записи для редактирования: ");
-                        int recordNumber = int.Parse(Console.ReadLine()) - 1;
+                        int recordNumber = 0;
+                        ValidateValue = true;
+                        while (ValidateValue)
+                        {
+                            try
+                            {
+                                string number = Console.ReadLine();
+                                RecordsException.ValidateInt(number, out recordNumber);
+                                ValidateValue = false;
+                            }
+                            catch (RecordsException ex)
+                            {
+                                Console.WriteLine($"Ошибочный ввод (Код {ex.ErrorCode}): {ex.Message}\n");
+                            }
+                        }
 
                         if (recordNumber >= 0 && recordNumber < numberOfRecords)
                         {
@@ -63,7 +119,21 @@ namespace Hospital
                             recordsManage.records[recordNumber].Time = Console.ReadLine();
 
                             Console.Write($"Специальность(1.Кардиолог;2.Отоларинголог;3.Психиатр;4.Ревматолог;5.Офтальмолог): ");
-                            recordsManage.records[recordNumber].Speciality = int.Parse(Console.ReadLine());
+                            recordsManage.records[recordNumber].Speciality = 0;
+                            ValidateValue = true;
+                            while (ValidateValue)
+                            {
+                                try
+                                {
+                                    string number = Console.ReadLine();
+                                    RecordsException.ValidateSpeciality(number, out recordsManage.records[recordNumber].Speciality);
+                                    ValidateValue = false;
+                                }
+                                catch (RecordsException ex)
+                                {
+                                    Console.WriteLine($"Ошибочный ввод (Код {ex.ErrorCode}): {ex.Message}\n");
+                                }
+                            }
 
                             Console.WriteLine("Данные успешно отредактированы.\n");
                         }
@@ -120,14 +190,58 @@ namespace Hospital
 
         public static string InputData()
         {
-            string day,month,year,time;
+            int day, month, year;
+            string time;
+            bool ValidateValue = true;
             Console.Write("\nДень: ");
-            day = Console.ReadLine();
+            day = 0;
+            ValidateValue = true;
+            while (ValidateValue)
+            {
+                try
+                {
+                    string number = Console.ReadLine();
+                    RecordsException.ValidateDay(number, out day);
+                    ValidateValue = false;
+                }
+                catch (RecordsException ex)
+                {
+                    Console.WriteLine($"Ошибочный ввод (Код {ex.ErrorCode}): {ex.Message}\n");
+                }
+            }
             Console.Write("\nМесяц: ");
-            month = Console.ReadLine();
+            month = 0;
+            ValidateValue = true;
+            while (ValidateValue)
+            {
+                try
+                {
+                    string number = Console.ReadLine();
+                    RecordsException.ValidateMonth(number, out month);
+                    ValidateValue = false;
+                }
+                catch (RecordsException ex)
+                {
+                    Console.WriteLine($"Ошибочный ввод (Код {ex.ErrorCode}): {ex.Message}\n");
+                }
+            }
             Console.Write("\nГод: ");
-            year = Console.ReadLine();
-            time = day + "/" + month + "/" + year;
+            year = 0;
+            ValidateValue = true;
+            while (ValidateValue)
+            {
+                try
+                {
+                    string number = Console.ReadLine();
+                    RecordsException.ValidateYear(number, out year);
+                    ValidateValue = false;
+                }
+                catch (RecordsException ex)
+                {
+                    Console.WriteLine($"Ошибочный ввод (Код {ex.ErrorCode}): {ex.Message}\n");
+                }
+            }
+            time = day + "." + month + "." + year;
             return time;
         }
     }
