@@ -15,9 +15,9 @@ namespace LibraryForRecords
         Rheumatologist = 4,
         Ophthalmologist = 5,
     }
-    internal class RecordsManage
+    public class RecordsManage
     {
-        public static Records[] records;
+        public Records[] records; 
 
         public RecordsManage(int NumberOfRecords)
         {
@@ -28,15 +28,15 @@ namespace LibraryForRecords
             }
         }
 
-        public static string TimeRecords(string time)
+        public static string TimeRecords(string time, Records[] records)
         {
             int count = 0;
             string timeRecords = "";
-            foreach(var record in records)
+            foreach (var record in records)
             {
-                if (record.Time == time);
+                if (record.Time == time)
                 {
-                    timeRecords = record.Initials + " " + record.Time + " " + record.Speciality + "\n";
+                    timeRecords = timeRecords + record.Initials + " " + record.Time + " " + record.Speciality + "\n";
                     count++;
                 }
             }
@@ -50,23 +50,24 @@ namespace LibraryForRecords
             }
         }
 
-        public static string DoctorRecords(string time) 
+        public static string DoctorRecords(string time, Records[] records) 
         {
             int patients = 0, doctors = 0, diff = 0;
             string numberPatients = "";
-            string[] names = new string[doctors];
+            string[] names = new string[records.Length];
             foreach (var record in records)
             {
-                if (record.Time == time) ;
+                if (record.Time == time)
                 {
                     for (int i = 0;i <= doctors;i++)
                     {
+                        Console.WriteLine(names.Length);
                         if (names[i] == record.Initials)
                         {
                             diff++;
                         }
                     }
-                    if (diff == doctors)
+                    if (diff == 0)
                     {
                         names[doctors] = record.Initials;
                         doctors++;
@@ -83,7 +84,7 @@ namespace LibraryForRecords
                         patients++;
                     }
                 }
-                numberPatients = names[i] + ":\n" + patients + "\n\n";
+                numberPatients = numberPatients + names[i] + ":\n" + patients + "\n\n";
             }
             if (!string.IsNullOrEmpty(numberPatients))
             {
@@ -95,14 +96,21 @@ namespace LibraryForRecords
             }
         }
 
-        public static string AveragePatients()
+        public static string AveragePatients(Records[] records)
         {
             double patients = 0, diff = 0;
             int days = 0;
             string average = "";
-            string[] times = new string[days];
+            string[] times = new string[records.Length];
             for (int i = 1; i <= 5 ; i++) 
-            { 
+            {
+                for (int j = 0; j < days; j++)
+                {
+                    times[j] = "";
+                }
+                diff = 0;
+                days = 0;
+                patients = 0;
                 foreach (var record in records)
                 {
                     if (record.Speciality == i)
@@ -114,7 +122,7 @@ namespace LibraryForRecords
                                 diff++;
                             }
                         }
-                        if (diff == days)
+                        if (diff == 0)
                         {
                             times[days] = record.Time;
                             days++;
@@ -124,7 +132,7 @@ namespace LibraryForRecords
                 }
                 if (days > 0)
                 {
-                    average = "Speciality" + i + ":\n" + patients / days + "\n\n";
+                    average = average + "Специальность " + i + ":\n" + patients / days + "\n\n";
                 }
             }
             if (!string.IsNullOrEmpty(average))
