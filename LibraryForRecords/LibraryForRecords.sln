@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryForRecords", "Librar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hospital", "..\Hospital\Hospital.csproj", "{82C3809E-B632-42A2-879D-11C9C58B94D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsForRecords", "..\TestsForRecords\TestsForRecords.csproj", "{6356B2C6-02C5-4739-B1FB-F265BB2B7E02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestsForRecords", "..\TestsForRecords\TestsForRecords.csproj", "{6356B2C6-02C5-4739-B1FB-F265BB2B7E02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

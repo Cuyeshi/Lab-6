@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace LibraryForRecords
 {
@@ -11,12 +7,13 @@ namespace LibraryForRecords
     /// </summary>
     enum Speciality
     {
-        Cardiologist = 1,
-        Otolaryngologist = 2,
-        Psychiatrist = 3,
-        Rheumatologist = 4,
-        Ophthalmologist = 5,
+        Кардиолог = 1,
+        Отоларинголог = 2,
+        Психиатр = 3,
+        Ревматолог = 4,
+        Офтальмолог = 5,
     }
+
     /// <summary>
     /// Класс с хранением записей.
     /// </summary>
@@ -42,6 +39,26 @@ namespace LibraryForRecords
         }
 
         /// <summary>
+        /// Метод для вывода значений констант из enum по передаваемому индексу.
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        private static string EnumerationExtract(int index)
+        {
+            // Получение всех значений перечисления в массив
+            Speciality[] specialitiesArray = (Speciality[])Enum.GetValues(typeof(Speciality));
+
+            string spec = "";
+            index--;
+            // Обращение к элементу по индексу
+            if (index >= 0 && index < specialitiesArray.Length)
+            {
+                spec = specialitiesArray[index].ToString();
+            }
+            return spec;
+        }
+
+        /// <summary>
         /// Метод, для вывода записей в определённый день.
         /// </summary>
         /// <param name="time"></param>
@@ -55,7 +72,7 @@ namespace LibraryForRecords
             {
                 if (record.Time == time)
                 {
-                    timeRecords = timeRecords + record.Initials + " " + record.Time + " " + record.Speciality + "\n";
+                    timeRecords = timeRecords + record.Initials + " " + record.Time + " " + EnumerationExtract(record.Speciality) + "\n";
                     count++;
                 }
             }
@@ -131,7 +148,7 @@ namespace LibraryForRecords
             int days = 0;
             string average = "";
             string[] times = new string[records.Length];
-            for (int i = (int)Speciality.Cardiologist ; i <= (int)Speciality.Ophthalmologist ; i++) 
+            for (int i = (int)Speciality.Кардиолог; i <= (int)Speciality.Офтальмолог; i++) 
             {
                 for (int j = 0; j < days; j++)
                 {
@@ -161,7 +178,7 @@ namespace LibraryForRecords
                 }
                 if (days > 0)
                 {
-                    average = average + "Специальность " + i + ":\n" + patients / days + "\n\n";
+                    average = average + "Специальность " + EnumerationExtract(i) + ":\n" + patients / days + "\n\n";
                 }
             }
             if (!string.IsNullOrEmpty(average))
