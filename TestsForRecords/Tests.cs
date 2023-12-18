@@ -19,7 +19,7 @@ namespace TestsForRecords
 
             string time = records.records[0].Time;
 
-            string record1 = "renat 01.01.2001 1\n";
+            string record1 = "renat 01.01.2001 Кардиолог\n";
 
             string result = RecordsManage.TimeRecords(time, records.records);
 
@@ -44,7 +44,7 @@ namespace TestsForRecords
 
             string time = records.records[0].Time;
 
-            string record1 = "renat 01.01.2001 1\nrenat 01.01.2001 2\nrenat 01.01.2001 3\n";
+            string record1 = "renat 01.01.2001 Кардиолог\nrenat 01.01.2001 Отоларинголог\nrenat 01.01.2001 Психиатр\n";
 
             string result = RecordsManage.TimeRecords(time, records.records);
 
@@ -69,7 +69,7 @@ namespace TestsForRecords
 
             string time = records.records[0].Time;
 
-            string record1 = "renat 01.01.2001 1\n";
+            string record1 = "renat 01.01.2001 Кардиолог\n";
 
             string result = RecordsManage.TimeRecords(time, records.records);
 
@@ -94,7 +94,7 @@ namespace TestsForRecords
 
             string time = records.records[0].Time;
 
-            string record1 = "renat 01.01.2001 1\nrenat 01.01.2001 3\n";
+            string record1 = "renat 01.01.2001 Кардиолог\nrenat 01.01.2001 Психиатр\n";
 
             string result = RecordsManage.TimeRecords(time, records.records);
 
@@ -256,7 +256,7 @@ namespace TestsForRecords
             records.records[0].Time = "01.01.2001";
             records.records[0].Speciality = 1;
 
-            string record1 = "Специальность 1:\n1\n\n";
+            string record1 = "Специальность Кардиолог:\n1\n\n";
 
             string result = RecordsManage.AveragePatients(records.records);
 
@@ -280,7 +280,7 @@ namespace TestsForRecords
             records.records[2].Time = "01.01.2001";
             records.records[2].Speciality = 1;
 
-            string record1 = "Специальность 1:\n3\n\n";
+            string record1 = "Специальность Кардиолог:\n3\n\n";
 
             string result = RecordsManage.AveragePatients(records.records);
 
@@ -304,7 +304,7 @@ namespace TestsForRecords
             records.records[2].Time = "01.01.2003";
             records.records[2].Speciality = 1;
 
-            string record1 = "Специальность 1:\n1\n\n";
+            string record1 = "Специальность Кардиолог:\n1\n\n";
 
             string result = RecordsManage.AveragePatients(records.records);
 
@@ -328,7 +328,7 @@ namespace TestsForRecords
             records.records[2].Time = "01.01.2003";
             records.records[2].Speciality = 5;
 
-            string record1 = "Специальность 1:\n1\n\nСпециальность 2:\n1\n\nСпециальность 5:\n1\n\n";
+            string record1 = "Специальность Кардиолог:\n1\n\nСпециальность Отоларинголог:\n1\n\nСпециальность Офтальмолог:\n1\n\n";
 
             string result = RecordsManage.AveragePatients(records.records);
 

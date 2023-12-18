@@ -6,11 +6,8 @@ namespace LibraryForRecords
     /// </summary>
     public class RecordsException : Exception
     {
-        public int ErrorCode { get; }
-
-        public RecordsException(string message, int errorCode) : base(message)
+        public RecordsException(string message) : base(message)
         {
-            ErrorCode = errorCode;
         }
 
         /// <summary>
@@ -23,17 +20,17 @@ namespace LibraryForRecords
         {
             if (string.IsNullOrWhiteSpace(input))
             {
-                throw new RecordsException("Строка пуста!", 1);
+                throw new RecordsException("Строка пуста!");
             }
 
             if (!Int32.TryParse(input, out result))
             {
-                throw new RecordsException("Строка содержит символ или текст!", 2);
+                throw new RecordsException("Строка содержит символ или текст!");
             }
 
             if (Convert.ToInt32(input) < 0 || Convert.ToInt32(input) > 31 ) 
             {
-                throw new RecordsException("Не является днём!", 3);
+                throw new RecordsException("Не является днём!");
             }
         }
 
@@ -47,17 +44,17 @@ namespace LibraryForRecords
         {
             if (string.IsNullOrWhiteSpace(input))
             {
-                throw new RecordsException("Строка пуста!", 1);
+                throw new RecordsException("Строка пуста!");
             }
 
             if (!Int32.TryParse(input, out result))
             {
-                throw new RecordsException("Строка содержит символ или текст!", 2);
+                throw new RecordsException("Строка содержит символ или текст!");
             }
 
             if (Convert.ToInt32(input) < 0 || Convert.ToInt32(input) > 12)
             {
-                throw new RecordsException("Не является месяцом!", 3);
+                throw new RecordsException("Не является месяцом!");
             }
         }
 
@@ -71,17 +68,17 @@ namespace LibraryForRecords
         {
             if (string.IsNullOrWhiteSpace(input))
             {
-                throw new RecordsException("Строка пуста!", 1);
+                throw new RecordsException("Строка пуста!");
             }
 
             if (!Int32.TryParse(input, out result))
             {
-                throw new RecordsException("Строка содержит символ или текст!", 2);
+                throw new RecordsException("Строка содержит символ или текст!");
             }
 
             if (Convert.ToInt32(input) < 0)
             {
-                throw new RecordsException("Не является годом!", 3);
+                throw new RecordsException("Не является годом!");
             }
         }
         /// <summary>
@@ -94,12 +91,12 @@ namespace LibraryForRecords
         {
             if (string.IsNullOrWhiteSpace(input))
             {
-                throw new RecordsException("Строка пуста!", 1);
+                throw new RecordsException("Строка пуста!");
             }
 
             if (!Int32.TryParse(input, out result))
             {
-                throw new RecordsException("Строка содержит вещественное число или текст!", 2);
+                throw new RecordsException("Строка содержит вещественное число или текст!");
             }
         }
 
@@ -113,17 +110,17 @@ namespace LibraryForRecords
         {
             if (string.IsNullOrWhiteSpace(input))
             {
-                throw new RecordsException("Строка пуста!\n", 1);
+                throw new RecordsException("Строка пуста!\n");
             }
 
             if (!Int32.TryParse(input, out result))
             {
-                throw new RecordsException("Строка содержит вещественное число или текст!\n", 2);
+                throw new RecordsException("Строка содержит вещественное число или текст!\n");
             }
 
             if (Convert.ToInt32(input) < 1 || Convert.ToInt32(input) > 5)
             {
-                throw new RecordsException("Такой специальности нет!\n", 3);
+                throw new RecordsException("Такой специальности нет!\n");
             }
         }
     }

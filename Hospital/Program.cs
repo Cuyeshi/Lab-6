@@ -20,7 +20,7 @@ namespace Hospital
                 }
                 catch (RecordsException ex)
                 {
-                    Console.WriteLine($"Ошибка ввода (Код {ex.ErrorCode}): {ex.Message}");
+                    Console.WriteLine($"Ошибка ввода: {ex.Message}");
                 }
             }
 
@@ -31,14 +31,16 @@ namespace Hospital
 
             while (!exit) 
             {
-                Console.WriteLine("\nВыберите действие:");
-                Console.WriteLine("1. Ввод записи на приём");
-                Console.WriteLine("2. Редактирование записей");
-                Console.WriteLine("3. Просмотр записей");
-                Console.WriteLine("4. Вывод записей на определённый день");
-                Console.WriteLine("5. Вывод количества пациентов по доктору в определённый день");
-                Console.WriteLine("6. Подсчёт среднего количества пациентов в день по специальности");
-                Console.WriteLine("0. Выход\n");
+                Console.WriteLine("\n╔═══════════════════════════════════════════════════════════════════╗");
+                Console.WriteLine("║                         Выберите действие:                        ║");
+                Console.WriteLine("║                      1. Ввод записи на приём                      ║");
+                Console.WriteLine("║                     2. Редактирование записей                     ║");
+                Console.WriteLine("║                        3. Просмотр записей                        ║");
+                Console.WriteLine("║                4. Вывод записей на определённый день              ║");
+                Console.WriteLine("║     5. Вывод количества пациентов по доктору в определённый день  ║");
+                Console.WriteLine("║  6. Подсчёт среднего количества пациентов в день по специальности ║");
+                Console.WriteLine("║                            0. Выход                               ║");
+                Console.WriteLine("╚═══════════════════════════════════════════════════════════════════╝\n");
 
                 int choice = 0;
                 ValidateValue = true;
@@ -52,13 +54,13 @@ namespace Hospital
                     }
                     catch (RecordsException ex)
                     {
-                        Console.WriteLine($"Ошибка ввода (Код {ex.ErrorCode}): {ex.Message}\n");
+                        Console.WriteLine($"Ошибка ввода: {ex.Message}\n");
                     }
                 }
 
                 switch (choice)
-                {                                                    //Ввод записей
-                    case 1:
+                {
+                    case 1: // Ввод записей.
                         for (int i = 0; i < numberOfRecords; i++)
                         {
                             Console.WriteLine($"Введите данные для записи {i + 1}:");
@@ -94,7 +96,7 @@ namespace Hospital
                                 }
                                 catch (RecordsException ex)
                                 {
-                                    Console.WriteLine($"Ошибка ввода (Код {ex.ErrorCode}): {ex.Message}\n");
+                                    Console.WriteLine($"Ошибка ввода: {ex.Message}\n");
                                 }
                             }
 
@@ -102,7 +104,7 @@ namespace Hospital
                         }
                         break;
 
-                    case 2:                                                 //Редактирование записи
+                    case 2: // Редактирование записи.
                         Console.Write("Введите номер записи для редактирования: ");
                         int recordNumber = 0;
                         ValidateValue = true;
@@ -117,7 +119,7 @@ namespace Hospital
                             }
                             catch (RecordsException ex)
                             {
-                                Console.WriteLine($"Ошибка ввода (Код {ex.ErrorCode}): {ex.Message}\n");
+                                Console.WriteLine($"Ошибка ввода: {ex.Message}\n");
                             }
                         }
 
@@ -156,7 +158,7 @@ namespace Hospital
                                 }
                                 catch (RecordsException ex)
                                 {
-                                    Console.WriteLine($"Ошибка ввода (Код {ex.ErrorCode}): {ex.Message}\n");
+                                    Console.WriteLine($"Ошибка ввода: {ex.Message}\n");
                                 }
                             }
 
@@ -168,31 +170,31 @@ namespace Hospital
                         }
                         break;
 
-                    case 3:                                          //Вывод записей
+                    case 3: // Вывод записей.
                         Console.WriteLine("Записи в поликлинике:");
 
                         for (int i = 0; i < numberOfRecords; i++)
                         {
                             if (recordsManage.records[i].Initials != null)
                             {
-                                Console.WriteLine("\n╔════════════════════════════════════════════════════════════════════════════════════╗");
-                                Console.WriteLine($"║ Запись {i + 1}                                                                           ║");
-                                Console.WriteLine($"║ ФИО доктора: {recordsManage.records[i].Initials}                                              ║");
-                                Console.WriteLine($"║ Дата: {recordsManage.records[i].Time}                                                                    ║");
-                                Console.WriteLine($"║ Специальность(1.Кардиолог;2.Отоларинголог;3.Психиатр;4.Ревматолог;5.Офтальмолог): {recordsManage.records[i].Speciality}║");
-                                Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════════════╝\n");
+                                Console.WriteLine("\n══════════════════════════════════════════════════════════════════════════════════════");
+                                Console.WriteLine($"\n Запись {i + 1}");
+                                Console.WriteLine($" ФИО доктора: {recordsManage.records[i].Initials}");
+                                Console.WriteLine($" Дата: {recordsManage.records[i].Time}");
+                                Console.WriteLine($" Специальность(1.Кардиолог;2.Отоларинголог;3.Психиатр;4.Ревматолог;5.Офтальмолог): {recordsManage.records[i].Speciality}");
+                                Console.WriteLine("\n═══════════════════════════════════════════════════════════════════════════════════════\n");
                             }
                         }
                         break;
 
-                    case 4:
+                    case 4: // Вывод записей на определённый день.
                         Console.Write("Введите дату дня приёма: ");
                         string time = Program.InputData();
                         result = RecordsManage.TimeRecords(time,recordsManage.records);
                         Console.WriteLine(result);
                         break;
 
-                    case 5:
+                    case 5: // Вывод количества пациентов по доктору в определённый день.
                         Console.Write("Введите дату дня приёма: ");
                         time = Program.InputData();
                         Console.WriteLine();
@@ -200,7 +202,7 @@ namespace Hospital
                         Console.WriteLine(result);
                         break;
 
-                    case 6:
+                    case 6: // Подсчёт среднего количества пациентов в день по специальности.
                         result = RecordsManage.AveragePatients(recordsManage.records);
                         Console.WriteLine(result);
                         break;
@@ -220,7 +222,7 @@ namespace Hospital
         /// Метод ввода даты.
         /// </summary>
         /// <returns></returns>
-        public static string InputData()
+        private static string InputData()
         {
             int day, month, year;
             string time;
@@ -238,7 +240,7 @@ namespace Hospital
                 }
                 catch (RecordsException ex)
                 {
-                    Console.WriteLine($"Ошибка ввода (Код {ex.ErrorCode}): {ex.Message}\n");
+                    Console.WriteLine($"Ошибка ввода: {ex.Message}\n");
                 }
             }
             Console.Write("\nМесяц: ");
@@ -254,7 +256,7 @@ namespace Hospital
                 }
                 catch (RecordsException ex)
                 {
-                    Console.WriteLine($"Ошибка ввода (Код {ex.ErrorCode}): {ex.Message}\n");
+                    Console.WriteLine($"Ошибка ввода: {ex.Message}\n");
                 }
             }
             Console.Write("\nГод: ");
@@ -270,7 +272,7 @@ namespace Hospital
                 }
                 catch (RecordsException ex)
                 {
-                    Console.WriteLine($"Ошибка ввода (Код {ex.ErrorCode}): {ex.Message}\n");
+                    Console.WriteLine($"Ошибка ввода: {ex.Message}\n");
                 }
             }
             time = day + "." + month + "." + year;
