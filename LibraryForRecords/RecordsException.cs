@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace LibraryForRecords
 {
     /// <summary>
@@ -28,7 +30,7 @@ namespace LibraryForRecords
                 throw new RecordsException("Строка содержит символ или текст!");
             }
 
-            if (Convert.ToInt32(input) < 0 || Convert.ToInt32(input) > 31 ) 
+            if (Convert.ToInt32(input) < 0 || Convert.ToInt32(input) > 31)
             {
                 throw new RecordsException("Не является днём!");
             }

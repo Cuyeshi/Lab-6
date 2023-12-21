@@ -1,4 +1,5 @@
-using LibraryForRecords;
+п»їusing LibraryForRecords;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestsForRecords
 {
@@ -7,7 +8,7 @@ namespace TestsForRecords
     {
 
         /// <summary>
-        /// Тест, проверяющий вывод одной записи.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ РІС‹РІРѕРґ РѕРґРЅРѕР№ Р·Р°РїРёСЃРё.
         /// </summary>
         [TestMethod]
         public void OutputOfOneRecords()
@@ -19,14 +20,14 @@ namespace TestsForRecords
 
             string time = records.records[0].Time;
 
-            string record1 = "renat 01.01.2001 Кардиолог\n";
+            string record1 = "renat 01.01.2001 РљР°СЂРґРёРѕР»РѕРі\n";
 
             string result = RecordsManage.TimeRecords(time, records.records);
 
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий вывод нескольких записей. 
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ РІС‹РІРѕРґ РЅРµСЃРєРѕР»СЊРєРёС… Р·Р°РїРёСЃРµР№. 
         /// </summary>
         [TestMethod]
         public void OutputOfMoreRecords()
@@ -44,14 +45,14 @@ namespace TestsForRecords
 
             string time = records.records[0].Time;
 
-            string record1 = "renat 01.01.2001 Кардиолог\nrenat 01.01.2001 Отоларинголог\nrenat 01.01.2001 Психиатр\n";
+            string record1 = "renat 01.01.2001 РљР°СЂРґРёРѕР»РѕРі\nrenat 01.01.2001 РћС‚РѕР»Р°СЂРёРЅРіРѕР»РѕРі\nrenat 01.01.2001 РџСЃРёС…РёР°С‚СЂ\n";
 
             string result = RecordsManage.TimeRecords(time, records.records);
 
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий вывод записи с отличной датой.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ РІС‹РІРѕРґ Р·Р°РїРёСЃРё СЃ РѕС‚Р»РёС‡РЅРѕР№ РґР°С‚РѕР№.
         /// </summary>
         [TestMethod]
         public void OutputOfRecordOfDifferentDays()
@@ -69,14 +70,14 @@ namespace TestsForRecords
 
             string time = records.records[0].Time;
 
-            string record1 = "renat 01.01.2001 Кардиолог\n";
+            string record1 = "renat 01.01.2001 РљР°СЂРґРёРѕР»РѕРі\n";
 
             string result = RecordsManage.TimeRecords(time, records.records);
 
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий вывод записей с различной датой.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ РІС‹РІРѕРґ Р·Р°РїРёСЃРµР№ СЃ СЂР°Р·Р»РёС‡РЅРѕР№ РґР°С‚РѕР№.
         /// </summary>
         [TestMethod]
         public void OutupOfRecordsOfDifferentDays()
@@ -94,14 +95,14 @@ namespace TestsForRecords
 
             string time = records.records[0].Time;
 
-            string record1 = "renat 01.01.2001 Кардиолог\nrenat 01.01.2001 Психиатр\n";
+            string record1 = "renat 01.01.2001 РљР°СЂРґРёРѕР»РѕРі\nrenat 01.01.2001 РџСЃРёС…РёР°С‚СЂ\n";
 
             string result = RecordsManage.TimeRecords(time, records.records);
 
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий вывод при отсуствие записи в этот день.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ РІС‹РІРѕРґ РїСЂРё РѕС‚СЃСѓСЃС‚РІРёРµ Р·Р°РїРёСЃРё РІ СЌС‚РѕС‚ РґРµРЅСЊ.
         /// </summary>
         [TestMethod]
         public void OutputWhenNoRecordsOfDay()
@@ -119,14 +120,14 @@ namespace TestsForRecords
 
             string time = "02.02.2001";
 
-            string record1 = "На данный день нет записей";
+            string record1 = "РќР° РґР°РЅРЅС‹Р№ РґРµРЅСЊ РЅРµС‚ Р·Р°РїРёСЃРµР№";
 
             string result = RecordsManage.TimeRecords(time, records.records);
 
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий вывод пациента у одного доктора.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ РІС‹РІРѕРґ РїР°С†РёРµРЅС‚Р° Сѓ РѕРґРЅРѕРіРѕ РґРѕРєС‚РѕСЂР°.
         /// </summary>
         [TestMethod]
         public void InHospitalOneDoctorAndOnePatient()
@@ -145,7 +146,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий вывод пациентов у одного доктора.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ РІС‹РІРѕРґ РїР°С†РёРµРЅС‚РѕРІ Сѓ РѕРґРЅРѕРіРѕ РґРѕРєС‚РѕСЂР°.
         /// </summary>
         [TestMethod]
         public void InHospitalOneDoctor()
@@ -170,7 +171,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий вывод пациентов у одного доктора в различные дни.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ РІС‹РІРѕРґ РїР°С†РёРµРЅС‚РѕРІ Сѓ РѕРґРЅРѕРіРѕ РґРѕРєС‚РѕСЂР° РІ СЂР°Р·Р»РёС‡РЅС‹Рµ РґРЅРё.
         /// </summary>
         [TestMethod]
         public void InHospitalOneDoctorInDifferntDays()
@@ -195,7 +196,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий вывод пациентов у нескольких докторов.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ РІС‹РІРѕРґ РїР°С†РёРµРЅС‚РѕРІ Сѓ РЅРµСЃРєРѕР»СЊРєРёС… РґРѕРєС‚РѕСЂРѕРІ.
         /// </summary>
         [TestMethod]
         public void InHospitalSomeDoctors()
@@ -220,7 +221,7 @@ namespace TestsForRecords
             Assert.AreEqual(result, record1);
         }
         /// <summary>
-        /// Тест, проверяющий вывод, когда в этот день нет записей.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ РІС‹РІРѕРґ, РєРѕРіРґР° РІ СЌС‚РѕС‚ РґРµРЅСЊ РЅРµС‚ Р·Р°РїРёСЃРµР№.
         /// </summary>
         [TestMethod]
         public void InThisDayNotRecords()
@@ -238,7 +239,7 @@ namespace TestsForRecords
 
             string time = "01.01.2002";
 
-            string record1 = "На данный день нет записей.";
+            string record1 = "РќР° РґР°РЅРЅС‹Р№ РґРµРЅСЊ РЅРµС‚ Р·Р°РїРёСЃРµР№.";
 
             string result = RecordsManage.DoctorRecords(time, records.records);
 
@@ -246,7 +247,7 @@ namespace TestsForRecords
         }
 
         /// <summary>
-        /// Тест, проверяющий среднее количество пациентов, когда один пациент в день.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ СЃСЂРµРґРЅРµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїР°С†РёРµРЅС‚РѕРІ, РєРѕРіРґР° РѕРґРёРЅ РїР°С†РёРµРЅС‚ РІ РґРµРЅСЊ.
         /// </summary>
         [TestMethod]
         public void OnePatientOnDay()
@@ -256,7 +257,7 @@ namespace TestsForRecords
             records.records[0].Time = "01.01.2001";
             records.records[0].Speciality = 1;
 
-            string record1 = "Специальность Кардиолог:\n1\n\n";
+            string record1 = "РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ РљР°СЂРґРёРѕР»РѕРі:\n1\n\n";
 
             string result = RecordsManage.AveragePatients(records.records);
 
@@ -264,7 +265,7 @@ namespace TestsForRecords
         }
 
         /// <summary>
-        /// Тест, проверяющий среднее количество пациентов, когда несколько пациент в день.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ СЃСЂРµРґРЅРµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїР°С†РёРµРЅС‚РѕРІ, РєРѕРіРґР° РЅРµСЃРєРѕР»СЊРєРѕ РїР°С†РёРµРЅС‚ РІ РґРµРЅСЊ.
         /// </summary>
         [TestMethod]
         public void SomePatientsOnDay()
@@ -280,7 +281,7 @@ namespace TestsForRecords
             records.records[2].Time = "01.01.2001";
             records.records[2].Speciality = 1;
 
-            string record1 = "Специальность Кардиолог:\n3\n\n";
+            string record1 = "РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ РљР°СЂРґРёРѕР»РѕРі:\n3\n\n";
 
             string result = RecordsManage.AveragePatients(records.records);
 
@@ -288,7 +289,7 @@ namespace TestsForRecords
         }
 
         /// <summary>
-        /// Тест, проверяющий среднее количество пациентов, когда несколько пациент в различные дни.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ СЃСЂРµРґРЅРµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїР°С†РёРµРЅС‚РѕРІ, РєРѕРіРґР° РЅРµСЃРєРѕР»СЊРєРѕ РїР°С†РёРµРЅС‚ РІ СЂР°Р·Р»РёС‡РЅС‹Рµ РґРЅРё.
         /// </summary>
         [TestMethod]
         public void SomePatientsOnDifferentDays()
@@ -304,7 +305,7 @@ namespace TestsForRecords
             records.records[2].Time = "01.01.2003";
             records.records[2].Speciality = 1;
 
-            string record1 = "Специальность Кардиолог:\n1\n\n";
+            string record1 = "РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ РљР°СЂРґРёРѕР»РѕРі:\n1\n\n";
 
             string result = RecordsManage.AveragePatients(records.records);
 
@@ -312,7 +313,7 @@ namespace TestsForRecords
         }
 
         /// <summary>
-        /// Тест, проверяющий среднее количество пациентов, когда несколько пациент по различным специальностям.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ СЃСЂРµРґРЅРµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїР°С†РёРµРЅС‚РѕРІ, РєРѕРіРґР° РЅРµСЃРєРѕР»СЊРєРѕ РїР°С†РёРµРЅС‚ РїРѕ СЂР°Р·Р»РёС‡РЅС‹Рј СЃРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЏРј.
         /// </summary>
         [TestMethod]
         public void SomePatientsOfDifferentSpeciality()
@@ -328,7 +329,7 @@ namespace TestsForRecords
             records.records[2].Time = "01.01.2003";
             records.records[2].Speciality = 5;
 
-            string record1 = "Специальность Кардиолог:\n1\n\nСпециальность Отоларинголог:\n1\n\nСпециальность Офтальмолог:\n1\n\n";
+            string record1 = "РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ РљР°СЂРґРёРѕР»РѕРі:\n1\n\nРЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ РћС‚РѕР»Р°СЂРёРЅРіРѕР»РѕРі:\n1\n\nРЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ РћС„С‚Р°Р»СЊРјРѕР»РѕРі:\n1\n\n";
 
             string result = RecordsManage.AveragePatients(records.records);
 
@@ -336,14 +337,14 @@ namespace TestsForRecords
         }
 
         /// <summary>
-        /// Тест, проверяющий среднее количество пациентов, когда нет записей.
+        /// РўРµСЃС‚, РїСЂРѕРІРµСЂСЏСЋС‰РёР№ СЃСЂРµРґРЅРµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїР°С†РёРµРЅС‚РѕРІ, РєРѕРіРґР° РЅРµС‚ Р·Р°РїРёСЃРµР№.
         /// </summary>
         [TestMethod]
         public void NoRecords()
         {
             RecordsManage records = new RecordsManage(0);
 
-            string record1 = "Записей нет.";
+            string record1 = "Р—Р°РїРёСЃРµР№ РЅРµС‚.";
 
             string result = RecordsManage.AveragePatients(records.records);
 

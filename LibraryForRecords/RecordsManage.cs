@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 
 namespace LibraryForRecords
 {
@@ -23,7 +23,7 @@ namespace LibraryForRecords
         /// <summary>
         /// Поле записей.
         /// </summary>
-        public Records[] records; 
+        public Records[] records;
 
         /// <summary>
         /// Конструктор по количеству записей.
@@ -51,7 +51,7 @@ namespace LibraryForRecords
             string spec = "";
             index--;
             // Обращение к элементу по индексу
-            if (index >= 0 && index < specialitiesArray.Length)
+            if (index > 0 && index < specialitiesArray.Length)
             {
                 spec = specialitiesArray[index].ToString();
             }
@@ -92,7 +92,7 @@ namespace LibraryForRecords
         /// <param name="time"></param>
         /// <param name="records"></param>
         /// <returns></returns>
-        public static string DoctorRecords(string time, Records[] records) 
+        public static string DoctorRecords(string time, Records[] records)
         {
             int patients = 0, doctors = 0, diff = 0;
             string numberPatients = "";
@@ -101,7 +101,7 @@ namespace LibraryForRecords
             {
                 if (record.Time == time)
                 {
-                    for (int i = 0;i <= doctors;i++)
+                    for (int i = 0; i <= doctors; i++)
                     {
                         if (names[i] == record.Initials)
                         {
@@ -115,7 +115,7 @@ namespace LibraryForRecords
                     }
                 }
             }
-            for (int i = 0; i < doctors;i++) 
+            for (int i = 0; i < doctors; i++)
             {
                 patients = 0;
                 foreach (var record in records)
@@ -148,7 +148,7 @@ namespace LibraryForRecords
             int days = 0;
             string average = "";
             string[] times = new string[records.Length];
-            for (int i = (int)Speciality.Кардиолог; i <= (int)Speciality.Офтальмолог; i++) 
+            for (int i = (int)Speciality.Кардиолог; i <= (int)Speciality.Офтальмолог; i++)
             {
                 for (int j = 0; j < days; j++)
                 {

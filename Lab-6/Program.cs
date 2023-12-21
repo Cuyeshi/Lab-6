@@ -29,7 +29,7 @@ namespace Hospital
 
             bool exit = false;
 
-            while (!exit) 
+            while (!exit)
             {
                 Console.WriteLine("\n╔═══════════════════════════════════════════════════════════════════╗");
                 Console.WriteLine("║                         Выберите действие:                        ║");
@@ -143,7 +143,7 @@ namespace Hospital
                             }
 
                             Console.Write("Дата: ");
-                            recordsManage.records[recordNumber].Time = Program.InputData();
+                            recordsManage.records[recordNumber].Time = InputData();
 
                             Console.Write($"Специальность(1.Кардиолог;2.Отоларинголог;3.Психиатр;4.Ревматолог;5.Офтальмолог): ");
                             recordsManage.records[recordNumber].Speciality = 0;
@@ -190,7 +190,7 @@ namespace Hospital
                     case 4: // Вывод записей на определённый день.
                         Console.Write("Введите дату дня приёма: ");
                         string time = Program.InputData();
-                        result = RecordsManage.TimeRecords(time,recordsManage.records);
+                        result = RecordsManage.TimeRecords(time, recordsManage.records);
                         Console.WriteLine(result);
                         break;
 
@@ -198,7 +198,7 @@ namespace Hospital
                         Console.Write("Введите дату дня приёма: ");
                         time = Program.InputData();
                         Console.WriteLine();
-                        result = RecordsManage.DoctorRecords(time,recordsManage.records);
+                        result = RecordsManage.DoctorRecords(time, recordsManage.records);
                         Console.WriteLine(result);
                         break;
 
@@ -215,7 +215,7 @@ namespace Hospital
                         Console.WriteLine("Некорректный выбор. Пожалуйста, выберите существующую опцию.");
                         break;
                 }
-            } 
+            }
         }
 
         /// <summary>
